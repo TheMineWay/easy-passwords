@@ -72,7 +72,7 @@ export const PasswordCriteria: React.FC<Props> = ({ criteria }) => {
 
       <div className="flex flex-wrap gap-2">
         <Badge
-          className="cursor-pointer select-none"
+          className="cursor-pointer select-none flex-auto"
           variant={includeCapital ? "default" : "outline"}
           onClick={toggleCapitalLettersClick}
         >
@@ -80,7 +80,7 @@ export const PasswordCriteria: React.FC<Props> = ({ criteria }) => {
         </Badge>
 
         <Badge
-          className="cursor-pointer select-none"
+          className="cursor-pointer select-none flex-auto"
           variant={includeLower ? "default" : "outline"}
           onClick={toggleLowerLettersClick}
         >
@@ -88,27 +88,25 @@ export const PasswordCriteria: React.FC<Props> = ({ criteria }) => {
         </Badge>
 
         <Badge
-          className="cursor-pointer select-none"
+          className="cursor-pointer select-none flex-auto"
           variant={includeNumber ? "default" : "outline"}
           onClick={toggleNumbersClick}
         >
           Numbers
         </Badge>
 
-        <div className="flex gap-2">
-            <Badge
-                className="cursor-pointer select-none"
-                variant={specialChars === null ? 'outline' : 'default'}
-                onClick={togglespecialCharsClick}
-            >
-                Special characters
-            </Badge>
-            {specialChars !== null && (
-                <Field>
-                    <Input value={specialChars.join('')} onChange={setSpecialCharsValue}/>
-                </Field>
-            )}
-        </div>
+        <Badge
+            className="cursor-pointer select-none flex-auto"
+            variant={specialChars === null ? 'outline' : 'default'}
+            onClick={togglespecialCharsClick}
+        >
+            Special characters
+        </Badge>
+        {specialChars !== null && (
+            <Field className="flex-auto max-w-full w-32">
+                <Input aria-label="Special chars" className="h-6" value={specialChars.join('')} onChange={setSpecialCharsValue}/>
+            </Field>
+        )}
       </div>
     </div>
   );
