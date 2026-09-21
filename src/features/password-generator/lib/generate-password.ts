@@ -2,7 +2,7 @@ import { DEFAULT_SPECIAL_CHARS, LOWERCASE_CHARS, NUMBER_CHARS, UPPERCASE_CHARS }
 import type { PasswordCriteria } from "./use-password-criteria";
 
 export function generatePassword(criteria: PasswordCriteria): string {
-  const { length, includeCapital, includeLower, includeNumber, specialChars } = criteria;
+  const { length, includeCapital, includeLower, includeNumber, specialChars = DEFAULT_SPECIAL_CHARS } = criteria;
 
   const charPools: string[] = [];
 
@@ -10,7 +10,7 @@ export function generatePassword(criteria: PasswordCriteria): string {
   if (includeCapital) charPools.push(UPPERCASE_CHARS);
   if (includeNumber) charPools.push(NUMBER_CHARS);
 
-  const symbols = specialChars ?? DEFAULT_SPECIAL_CHARS;
+  const symbols = specialChars;
   if (symbols.length > 0) {
     charPools.push(symbols.join(''));
   }

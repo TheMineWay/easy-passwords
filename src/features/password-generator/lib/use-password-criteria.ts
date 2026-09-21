@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { DEFAULT_SPECIAL_CHARS } from "../constants/password-chars";
 
 export const usePasswordCriteria = () => {
     const [length, setLength] = useState(16);
     const [includeCapital, setIncludeCapital] = useState(true);
     const [includeLower, setIncludeLower] = useState(true);
-    const [includeNumber, setIncludeNumber] = useState();
-    const [specialChars, setSpecialChars] = useState();
+    const [includeNumber, setIncludeNumber] = useState(true);
+    const [specialChars, setSpecialChars] = useState(DEFAULT_SPECIAL_CHARS);
 
     return {
         length,
