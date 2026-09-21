@@ -1,4 +1,5 @@
 import { Container } from "./components/layout/container";
+import { PasswordGeneratorTool } from "./features/password-generator/components/password-generator-tool";
 
 export const App: React.FC = () => {
     return <div className="w-screen h-lvh flex flex-col">
@@ -8,8 +9,12 @@ export const App: React.FC = () => {
             </Container>
         </header>
         <main className="flex-1">
-            <Container className="h-full w-full">
-
+            <Container className="h-full">
+                <div className="h-full flex items-center justify-center">
+                    <div className="max-w-full w-2xl">
+                        <PasswordGeneratorTool/>
+                    </div>
+                </div>
             </Container>
         </main>
     </div>;
