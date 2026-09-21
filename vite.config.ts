@@ -13,6 +13,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({ registerType: 'autoUpdate', manifest: {
       name: "Easy Passwords",
+      theme_color: '#f9b800'
     } })
   ],
   resolve: {
