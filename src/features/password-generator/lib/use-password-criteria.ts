@@ -6,7 +6,7 @@ export const usePasswordCriteria = () => {
     const [includeCapital, setIncludeCapital] = useState(true);
     const [includeLower, setIncludeLower] = useState(true);
     const [includeNumber, setIncludeNumber] = useState(true);
-    const [specialChars, setSpecialChars] = useState(DEFAULT_SPECIAL_CHARS);
+    const [specialChars, setSpecialChars] = useState<string[] | null>(DEFAULT_SPECIAL_CHARS);
 
     return {
         length,
