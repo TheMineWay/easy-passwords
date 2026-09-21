@@ -20,5 +20,5 @@ export default defineConfig({
       "@": path.resolve(import.meta.dirname, "./src"),
     },
   },
-  base: '/'
+  base: '/easy-passwords/'
 })
