@@ -9,19 +9,19 @@ type Props = {
 
 export const PasswordCriteria: React.FC<Props> = ({ criteria }) => {
 
-    const { control: { setPasswordLength }, passwordLength } = criteria;
+    const { control: { setLength }, length } = criteria;
 
     const onLengthValueChange = useCallback((v: number | readonly number[]) => {
         if (typeof v === 'number') {
-            setPasswordLength(v);
+            setLength(v);
         }
-    }, [setPasswordLength]);
+    }, [setLength]);
 
     return <div className="flex">
         <Field orientation="horizontal">
-            <Slider min={4} max={128} value={passwordLength} onValueChange={onLengthValueChange}/>
+            <Slider min={4} max={128} value={length} onValueChange={onLengthValueChange}/>
             <FieldLabel>
-                {passwordLength}
+                {length}
             </FieldLabel>
         </Field>
     </div>

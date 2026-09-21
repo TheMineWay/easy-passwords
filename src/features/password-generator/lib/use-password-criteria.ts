@@ -1,12 +1,25 @@
 import { useState } from "react";
 
 export const usePasswordCriteria = () => {
-    const [passwordLength, setPasswordLength] = useState(16);
+    const [length, setLength] = useState(16);
+    const [includeCapital, setIncludeCapital] = useState(true);
+    const [includeLower, setIncludeLower] = useState(true);
+    const [includeNumber, setIncludeNumber] = useState();
+    const [specialChars, setSpecialChars] = useState();
 
     return {
-        passwordLength,
+        length,
+        includeCapital,
+        includeLower,
+        includeNumber,
+        specialChars,
+
         control: {
-            setPasswordLength,
+            setLength,
+            setIncludeCapital,
+            setIncludeLower,
+            setIncludeNumber,
+            setSpecialChars,
         }
     };
 }
