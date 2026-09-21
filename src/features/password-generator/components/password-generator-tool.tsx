@@ -22,7 +22,7 @@ export const PasswordGeneratorTool: React.FC = () => {
         try {
             await navigator.clipboard.writeText(password);
             setIsCopied(true);
-            
+
             setTimeout(() => {
                 setIsCopied(false);
             }, 2000);
@@ -31,13 +31,20 @@ export const PasswordGeneratorTool: React.FC = () => {
         }
     }, [password]);
 
+    /* Visibility */
+    const [isVisible, setVisible] = useState(false);
+    const onTogglePasswordVisibility = useCallback(() => setVisible((prev) => !prev), [setVisible]);
+
     /* Component */
 
     return <div className="flex flex-col gap-4">
         <div className="flex gap-2 w-full">
-            <Password className="flex-1" value={password} onChange={setPassword}/>
+            <Password className="flex-1" value={password} onChange={setPassword} visible={isVisible}/>
             <ButtonGroup>
-                <Button aria-label="Generate password" onClick={onCopyClick}>
+                <Button aria-label={isVisible ? 'Hide password' : 'Show password'} onClick={onTogglePasswordVisibility}>
+                    <i className={cn("bi", isVisible ? "bi-eye" : "bi-eye-slash")}></i>
+                </Button>
+                <Button aria-label="Copy password" onClick={onCopyClick}>
                     <i className={cn("bi", isCopied ? "bi-check" : "bi-clipboard")}></i>
                 </Button>
                 <Button aria-label="Generate password" onClick={onGeneratePasswordClick}>

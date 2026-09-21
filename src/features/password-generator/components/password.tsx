@@ -7,12 +7,13 @@ type PasswordProps = {
     placeholder?: string;
     className?: string;
     onChange?: (v: string) => void;
+    visible?: boolean;
 }
 
-export const Password: React.FC<PasswordProps> = ({ value, placeholder, className, onChange }) => {
+export const Password: React.FC<PasswordProps> = ({ value, placeholder, className, onChange, visible }) => {
     const id = useId();
 
     return <Field className={className}>
-        <Input id={id} placeholder={placeholder} value={value} onChange={(e) => onChange?.(e.target.value)}/>
+        <Input type={visible ? "text" : "password"} id={id} placeholder={placeholder} value={value} onChange={(e) => onChange?.(e.target.value)}/>
     </Field>
 }
